@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="bg-dark text-lg-start d-flex justify-content-around">
       <div className="text-center p-3 background-color: rgba(0, 0, 0, 0.2);">
-        © 2020 Copyright: NectoJ.ninja
+        © 2021 Copyright: NectoJ.ninja
       </div>
       <div id="platforms" className="d-flex justify-content-around align-items-center">
         <a id="github" className="height: 100%;" href="https://github.com/SemiShogun">
