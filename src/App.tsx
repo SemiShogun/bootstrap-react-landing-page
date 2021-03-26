@@ -87,7 +87,13 @@ function App() {
                 md={6}
                 sm={0}
                 className="d-flex justify-content-start"
-              ></Col>
+              >
+                <img
+                  className="img-fluid"
+                  src="/images/cow_and_dolphin.jpg"
+                  alt="cow and dolphin"
+                />{" "}
+              </Col>
             </Row>
           </div>
           <div id="projects">
@@ -97,7 +103,13 @@ function App() {
                 md={6}
                 sm={10}
                 className="d-flex justify-content-start"
-              ></Col>
+              >
+                <img
+                  className="img-fluid"
+                  src="/images/cow_and_dolphin.jpg"
+                  alt="cow and dolphin"
+                />{" "}
+              </Col>
               <Col
                 lg={6}
                 md={6}
