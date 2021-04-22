@@ -1,6 +1,16 @@
 import "./App.css";
+import "./HoverEffect.css";
 import React from "react";
-import { Button, Container, Row, Col, Form } from "react-bootstrap";
+import {
+  Button,
+  Container,
+  Row,
+  Col,
+  Form,
+  Image,
+  CardImg,
+  Carousel,
+} from "react-bootstrap";
 import NavBar from "./layouts/NavBar";
 import Typewriter from "typewriter-effect/dist/core";
 import Footer from "./layouts/Footer";
@@ -25,7 +35,7 @@ function App() {
         .typeString("<br/>")
         .pauseFor(300)
         .typeString(
-          `<span style="color: #008F11">During my free time, I love to develop new things that other people would love to use.</span>`
+          `<span style="color: #008F11">During my free time, I love to develop new things.</span>`
         )
         .pauseFor(1000)
         .typeString(`<span style="color: #008F11"> ;) </span>`)
@@ -33,24 +43,77 @@ function App() {
     }, 2500);
   });
 
+  interface imageContents {
+    title: string;
+    img: string;
+    description: string;
+  }
+
+  const images: imageContents[] = Array(
+    {
+      title: "About.jpg",
+      img: "/images/about_updated.jpg",
+      description: "F-Stop: f/1.8, Exposure Time: 1/25 sec, ISO: ISO-200",
+    },
+    {
+      title: "Flower.jpg",
+      img: "/images/flower.jpg",
+      description: "F-Stop: f/3.2, Exposure Time: 1/320 sec, ISO-200",
+    },
+    {
+      title: "Boat.jpg",
+      img: "/images/boat_updated.jpg",
+      description: "F-Stop: f/1.8, Exposure Time: 1/4000 sec, ISO-200",
+    },
+    {
+      title: "Bee.jpg",
+      img: "/images/Bee_updated.jpg",
+      description: "F-Stop: f/2.8, Exposure Time: 1/250 sec, ISO-200",
+    },
+    {
+      title: "Myself.jpg",
+      img: "/images/myself.png",
+      description: "F-Stop: f/3.2, Exposure Time: 1/250 sec, ISO-50",
+    },
+    {
+      title: "Train.jpg",
+      img: "/images/train_updated.jpg",
+      description: "F-Stop: f/2.2, Exposure Time: 1/1250 sec, ISO-200",
+    },
+    {
+      title: "ferry.jpg",
+      img: "/images/ferry_updated.jpg",
+      description: "F-Stop: f/9, Exposure Time: 1/320 sec, ISO-400",
+    },
+    {
+      title: "tower_1.jpg",
+      img: "/images/tower_1_updated.jpg",
+      description: "F-Stop: f/9, Exposure Time: 1/125 sec, ISO-200",
+    },
+    {
+      title: "tower_2.jpg",
+      img: "/images/tower_2_updated.jpg",
+      description: "F-Stop: f/6.3, Exposure Time: 1/125 sec, ISO-320",
+    }
+  );
+
   return (
     <div className="App">
-      {/* <div className="logo-background"></div> */}
       <NavBar />
       <div className="spacing">
         <Container fluid>
           <div id="home">
-            <Row className="d-flex justify-content-end align-items-center">
+            <Row className="d-flex justify-content-end align-items-center row-spacing">
               <Col
                 lg={6}
                 md={6}
-                sm={10}
+                sm={12}
                 className="d-flex justify-content-center"
               >
                 <img
                   id="myself"
                   className="img-fluid"
-                  src="/images/myself.png"
+                  src="/images/introduction_updated.jpg"
                   alt="myself"
                 />
               </Col>
@@ -65,7 +128,7 @@ function App() {
             </Row>
           </div>
           <div id="about">
-            <Row className="d-flex justify-content-center">
+            <Row className="d-flex justify-content-center row-spacing">
               <Col
                 lg={6}
                 md={6}
@@ -90,14 +153,14 @@ function App() {
               >
                 <img
                   className="img-fluid"
-                  src="/images/cow_and_dolphin.jpg"
-                  alt="cow and dolphin"
+                  src="/images/myself.png"
+                  alt="Myself"
                 />{" "}
               </Col>
             </Row>
           </div>
           <div id="projects">
-            <Row className="d-flex justify-content-center">
+            <Row className="d-flex justify-content-center row-spacing">
               <Col
                 lg={6}
                 md={6}
@@ -106,8 +169,8 @@ function App() {
               >
                 <img
                   className="img-fluid"
-                  src="/images/cow_and_dolphin.jpg"
-                  alt="cow and dolphin"
+                  src="/images/about_updated.jpg"
+                  alt="About Myself"
                 />{" "}
               </Col>
               <Col
@@ -119,20 +182,13 @@ function App() {
                 <h1>Projects</h1>
                 <span id="about-text">
                   I'm currently undertaking multiple projects which you can find
-                  in my Github account. Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                  sint occaecat cupidatat non proident, sunt in culpa qui
-                  officia deserunt mollit anim id est laborum.
+                  on my Github account.
                 </span>
               </Col>
             </Row>
           </div>
           <div id="blog">
-            <Row className="d-flex justify-content-center">
+            <Row className="d-flex justify-content-center row-spacing">
               <Col
                 lg={12}
                 md={12}
@@ -153,8 +209,66 @@ function App() {
               </Col>
             </Row>
           </div>
+          <div id="gallery">
+            <Row className="d-flex justify-content-start align-items-center row-spacing">
+              <Col sm={12} md={12} lg={12}>
+                <h1>Gallery</h1>
+              </Col>
+              {images.map((image: imageContents) => (
+                <Col sm={4} md={4} lg={4}>
+                  <div className="hovereffect gallery-item">
+                    <div className="d-flex justify-content-center">
+                      <p className="gallery-title">{image.title}</p>
+                      <p className="gallery-text">{image.description}</p>
+                    </div>
+                    <img src={image.img} />
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </div>
+          <div id="carousel">
+            <Row className="d-flex justify-content-center align-items-center row-spacing">
+              <Col sm={12} md={12} lg={12}>
+                <h1>Carousel</h1>
+              </Col>
+              <Col sm={6} md={6} lg={6} className="carousel">
+                <Carousel>
+                  {images.map((image: imageContents) => (
+                    <Carousel.Item>
+                      <img
+                        className="d-block w-100 carousel-item"
+                        src={image.img}
+                      />
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+              </Col>
+            </Row>
+          </div>
+          <div id="explanation">
+            <Row className="d-flex justify-content-start row-spacing">
+              <Col sm={12} md={12} lg={12}>
+                <h1>Explanation</h1>
+                <p>
+                  All of the images in this site have been edited with
+                  photoshop.
+                  <br />
+                  Icons are all made with SVG.
+                  <br />
+                  Images are made with JPG.
+                  <br />
+                  Favicon is a GIF.
+                  <br />
+                  Methods I've used: Golden Ratio, Rule of Thirds, Aperture,
+                  Shutter Speed, ISO I've used Photoshop to manipulate the
+                  picture into making it look a bit nicer.
+                </p>
+              </Col>
+            </Row>
+          </div>
           <div id="contact">
-            <Row className="d-flex justify-content-center">
+            <Row className="d-flex justify-content-center row-spacing">
               <Col
                 lg={12}
                 md={12}
