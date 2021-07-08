@@ -1,6 +1,6 @@
 import "./App.css";
 import "./HoverEffect.css";
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Container,
@@ -13,10 +13,12 @@ import {
 } from "react-bootstrap";
 import NavBar from "./layouts/NavBar";
 import Typewriter from "typewriter-effect/dist/core";
+import ImageUploader from "./components/ImageUploader";
 import Footer from "./layouts/Footer";
 
 function App() {
   React.useEffect(() => {
+
     setTimeout(() => {
       var typewriter = new Typewriter("#description", {
         delay: 65,
@@ -246,6 +248,45 @@ function App() {
               </Col>
             </Row>
           </div>
+          <div id="video">
+            <Row className="d-flex justify-content-start row-spacing">
+              <Col sm={12} md={12} lg={12}>
+                <h1>Video</h1>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/mKGMJlHApMA"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                ></iframe>
+                <br />
+                <video width="640" height="480" autoPlay muted>
+                  <source src="keanu_reeves.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <br />
+              </Col>
+              <Col sm={12} md={12} lg={12}>
+                <h1>Video Explanation</h1>
+              </Col>
+              <Col sm={4} md={4} lg={4}>
+                Video editing software: Adobe Premiere Pro
+                <img src="/images/premiere_pro.png"></img>
+              </Col>
+              <Col sm={4} md={4} lg={4}>
+                Video Recording software: Samsung S9
+                <img src="/images/s9_blue.png"></img>
+              </Col>
+              <Col sm={4} md={4} lg={4}>
+                Video Recording accessories: Tripod
+                <img src="/images/tripod.png"></img>
+              </Col>
+              <Col sm={4} md={4} lg={4}>
+                Rule of thirds
+                <img src="/images/thirds.png"></img>
+              </Col>
+            </Row>
+          </div>
           <div id="explanation">
             <Row className="d-flex justify-content-start row-spacing">
               <Col sm={12} md={12} lg={12}>
@@ -303,6 +344,43 @@ function App() {
               </Col>
             </Row>
           </div>
+          <div id="contact">
+            <Row className="d-flex justify-content-center row-spacing">
+              <Col
+                lg={12}
+                md={12}
+                sm={12}
+                className="d-flex flex-column justify-content-center align-items-start"
+              >
+                <h1>Contact</h1>
+                <Form>
+                  <Form.Group controlId="formBasicName">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" placeholder="Enter name" />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Text className="text-muted">
+                      I'll never share your email with anyone else.
+                    </Form.Text>
+                  </Form.Group>
+                  <Form.Group controlId="formBasicTitle">
+                    <Form.Label>Title</Form.Label>
+                    <Form.Control type="text" placeholder="Enter title" />
+                  </Form.Group>
+                  <Form.Group controlId="controlTextarea1">
+                    <Form.Label>Contents</Form.Label>
+                    <Form.Control as="textarea" rows={2} />
+                  </Form.Group>
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                </Form>
+              </Col>
+            </Row>
+          </div>
+          <ImageUploader />
         </Container>
       </div>
       <Footer />
